@@ -11,7 +11,7 @@ const Layout: React.FC<ILayoutProps> = ({ header, body }) => (
       <header>
         <h1 className="text-3xl text-center font-bold">{header}</h1>
       </header>
-      <main className="mt-10">{body}</main>
+      <main className="mt-10 xl:mt-20">{body}</main>
     </div>
   </div>
 );

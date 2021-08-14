@@ -4,6 +4,7 @@ import DetailsItem from '../../components/DetailsItem';
 import DetailsGrid from '../../components/DetailsGrid';
 import LocationOverview from '../../components/LocationOverview';
 import LocationDetailsHeader from './LocationDetailsHeader';
+import LocationViewGrid from '../../components/LocationViewGrid';
 
 interface ILocationDetailsProps
   extends RouteComponentProps<{
@@ -19,19 +20,20 @@ const LocationDetailsRootView: React.FC<ILocationDetailsProps> = ({
     <Layout
       header={<LocationDetailsHeader locationName={locationName} />}
       body={
-        <>
-          <LocationOverview />
+        <LocationViewGrid
+          overview={<LocationOverview />}
+          details={
+            <DetailsGrid>
+              <DetailsItem label="Sunrise" value="05:40" />
 
-          <DetailsGrid>
-            <DetailsItem label="Sunrise" value="05:40" />
+              <DetailsItem label="Sunset" value="20:26" />
 
-            <DetailsItem label="Sunset" value="20:26" />
+              <DetailsItem label="Humidity" value="76%" />
 
-            <DetailsItem label="Humidity" value="76%" />
-
-            <DetailsItem label="Visibility" value="16.2 km" />
-          </DetailsGrid>
-        </>
+              <DetailsItem label="Visibility" value="16.2 km" />
+            </DetailsGrid>
+          }
+        />
       }
     />
   );

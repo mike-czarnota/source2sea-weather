@@ -8,7 +8,7 @@ const DetailsGrid: React.FC<IDetailsGridProps> = ({ children }) => {
     <div
       className={classNames(
         styles.self,
-        'grid grid-cols-2 mt-10 bg-gray-900 md:mx-auto'
+        'grid grid-cols-2 mt-10 bg-gray-900 md:mx-auto xl:mx-0'
       )}
     >
       {children}
