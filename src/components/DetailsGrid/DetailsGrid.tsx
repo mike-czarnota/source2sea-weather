@@ -6,7 +6,10 @@ interface IDetailsGridProps {}
 const DetailsGrid: React.FC<IDetailsGridProps> = ({ children }) => {
   return (
     <div
-      className={classNames(styles.self, 'grid grid-cols-2 mt-10 bg-gray-900')}
+      className={classNames(
+        styles.self,
+        'grid grid-cols-2 mt-10 bg-gray-900 md:mx-auto'
+      )}
     >
       {children}
     </div>

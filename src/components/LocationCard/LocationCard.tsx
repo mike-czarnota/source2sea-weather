@@ -17,7 +17,7 @@ const LocationCard: React.FC<ILocationCardProps> = ({
   <Link
     className={classNames(
       styles.self,
-      `p-5 flex justify-between items-center border rounded-lg bg-white border-gray-300 hover:border-gray-900 duration-200 ease-in-out shadow-md hover:shadow-2xl`
+      `p-5 md:px-10 md:py-7 flex justify-between items-center border rounded-lg bg-white border-gray-300 hover:border-gray-900 duration-200 ease-in-out shadow-md hover:shadow-2xl`
     )}
     to={getLocationUrl(name)}
   >

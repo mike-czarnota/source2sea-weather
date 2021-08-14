@@ -6,11 +6,13 @@ interface ILayoutProps {
 }
 
 const Layout: React.FC<ILayoutProps> = ({ header, body }) => (
-  <div className="pt-5 container px-5 min-h-screen">
-    <header>
-      <h1 className="text-3xl text-center font-bold">{header}</h1>
-    </header>
-    <main className="mt-10">{body}</main>
+  <div className="p-5 container mx-auto min-h-screen">
+    <div className="md:w-5/6 mx-auto xl:w-full">
+      <header>
+        <h1 className="text-3xl text-center font-bold">{header}</h1>
+      </header>
+      <main className="mt-10">{body}</main>
+    </div>
   </div>
 );
 
