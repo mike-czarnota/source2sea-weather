@@ -1,0 +1,32 @@
+import LocationCard from '../LocationCard';
+
+interface ILocationListProps {}
+
+const locations = [
+  {
+    name: 'My location',
+    temperatureInCelsius: 14,
+  },
+  {
+    name: 'Berlin',
+    temperatureInCelsius: 14,
+  },
+  {
+    name: 'London',
+    temperatureInCelsius: 28,
+  },
+];
+
+const LocationList: React.FC<ILocationListProps> = () => (
+  <div className="container px-5 mt-10 grid grid-cols-1 gap-4">
+    {locations.map(({ name, temperatureInCelsius }) => (
+      <LocationCard
+        key={name}
+        name={name}
+        temperatureInCelsius={temperatureInCelsius}
+      />
+    ))}
+  </div>
+);
+
+export default LocationList;
