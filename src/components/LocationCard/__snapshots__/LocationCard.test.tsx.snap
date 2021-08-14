@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`testing LocationCard.test.tsx should render 1`] = `
+"<div>
+  <div class=\\"self p-5 flex justify-between items-center border rounded-lg bg-white border-gray-300 hover:border-gray-900 duration-200 ease-in-out shadow-md hover:shadow-2xl\\"><span class=\\"text-2xl\\">some random name</span><span class=\\"text-xl\\">23°C</span></div>
+</div>"
+`;
