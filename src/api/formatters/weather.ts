@@ -1,5 +1,8 @@
 import { IWeatherResponse } from '../types/Weather';
-import { ILocationTempDetails } from '../../models/LocationTempDetails';
+import {
+  ILocationTempDetails,
+  ILocationTempOverview,
+} from '../../models/LocationTempDetails';
 
 export const formatWeatherResponse = (
   payload: IWeatherResponse
@@ -24,5 +27,17 @@ export const formatWeatherResponse = (
     lowTemp,
     name,
     weatherConditions,
+  };
+};
+
+export const formatSimplifiedWeatherResponse = (
+  payload: IWeatherResponse
+): ILocationTempOverview => {
+  const currentTemp = payload.main.temp;
+  const { name } = payload;
+
+  return {
+    currentTemp,
+    name,
   };
 };

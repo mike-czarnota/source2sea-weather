@@ -9,3 +9,8 @@ export interface ILocationTempDetails {
   name: string;
   weatherConditions: string[];
 }
+
+export interface ILocationTempOverview {
+  currentTemp: number;
+  name: string;
+}
