@@ -18,6 +18,7 @@ module.exports = {
       2,
       { extensions: ['.js', '.jsx', '.ts', '.tsx'] },
     ],
+    'global-require': 'off',
   },
   ignorePatterns: ['.eslintrc.js'],
 };
