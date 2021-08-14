@@ -1,20 +1,11 @@
 import React from 'react';
 import LocationList from '../../components/LocationList';
+import Layout from '../../components/Layout';
 
 interface IDashboardProps {}
 
 const Dashboard: React.FC<IDashboardProps> = () => (
-  <div className="pt-5">
-    <header>
-      <div>
-        <h1 className="text-4xl text-center font-bold">Dashboard</h1>
-      </div>
-    </header>
-
-    <main>
-      <LocationList />
-    </main>
-  </div>
+  <Layout header={<span>Dashboard</span>} body={<LocationList />} />
 );
 
 export default Dashboard;

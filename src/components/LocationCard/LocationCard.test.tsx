@@ -1,12 +1,13 @@
 import pretty from 'pretty';
-import { render, screen } from '@testing-library/react';
+import { screen } from '@testing-library/react';
 import LocationCard from './LocationCard';
+import { renderWithWrapper } from '../../utils/testUtils';
 
 describe('testing LocationCard.test.tsx', () => {
   it('should render', () => {
     expect(
       pretty(
-        render(
+        renderWithWrapper(
           <LocationCard name="some random name" temperatureInCelsius={23} />
         ).baseElement.innerHTML
       )

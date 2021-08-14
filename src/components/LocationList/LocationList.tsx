@@ -18,7 +18,7 @@ const locations = [
 ];
 
 const LocationList: React.FC<ILocationListProps> = () => (
-  <div className="container px-5 mt-10 grid grid-cols-1 gap-4">
+  <div className="grid grid-cols-1 gap-4">
     {locations.map(({ name, temperatureInCelsius }) => (
       <LocationCard
         key={name}
