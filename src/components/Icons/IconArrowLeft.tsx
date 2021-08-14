@@ -1,8 +1,7 @@
 import classNames from 'classnames';
+import { IIconBaseProps } from './IconTypes';
 
-interface IIconArrowLeftProps {
-  className?: string;
-}
+interface IIconArrowLeftProps extends IIconBaseProps {}
 
 const IconArrowLeft: React.FC<IIconArrowLeftProps> = ({ className }) => (
   <svg
