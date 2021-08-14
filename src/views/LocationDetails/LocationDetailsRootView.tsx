@@ -10,7 +10,7 @@ interface ILocationDetailsProps
     locationName: string;
   }> {}
 
-const LocationDetails: React.FC<ILocationDetailsProps> = ({
+const LocationDetailsRootView: React.FC<ILocationDetailsProps> = ({
   match: {
     params: { locationName },
   },
@@ -37,4 +37,4 @@ const LocationDetails: React.FC<ILocationDetailsProps> = ({
   );
 };
 
-export default LocationDetails;
+export default LocationDetailsRootView;

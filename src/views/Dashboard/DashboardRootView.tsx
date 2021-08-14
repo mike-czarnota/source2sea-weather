@@ -4,8 +4,8 @@ import Layout from '../../components/Layout';
 
 interface IDashboardProps {}
 
-const Dashboard: React.FC<IDashboardProps> = () => (
+const DashboardRootView: React.FC<IDashboardProps> = () => (
   <Layout header={<span>Dashboard</span>} body={<LocationList />} />
 );
 
-export default Dashboard;
+export default DashboardRootView;
