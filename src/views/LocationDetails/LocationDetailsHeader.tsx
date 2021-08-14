@@ -3,7 +3,7 @@ import * as routes from '../routes';
 import { IconArrowLeft } from '../../components/Icons';
 
 interface ILocationDetailsHeaderProps {
-  locationName: string;
+  locationName: React.ReactElement | string;
 }
 
 const LocationDetailsHeader: React.FC<ILocationDetailsHeaderProps> = ({

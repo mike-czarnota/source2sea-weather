@@ -1,10 +1,8 @@
 import { RouteComponentProps } from 'react-router-dom';
-import Layout from '../../components/Layout';
-import DetailsItem from '../../components/DetailsItem';
-import DetailsGrid from '../../components/DetailsGrid';
-import LocationOverview from '../../components/LocationOverview';
-import LocationDetailsHeader from './LocationDetailsHeader';
-import LocationViewGrid from '../../components/LocationViewGrid';
+import { useQuery } from 'react-fetching-library';
+import { getWeatherUrl } from '../../api/urls';
+import { IWeatherResponse } from '../../api/types/Weather';
+import LocationDetailsContent from './LocationDetailsContent';
 
 interface ILocationDetailsProps
   extends RouteComponentProps<{
@@ -16,26 +14,13 @@ const LocationDetailsRootView: React.FC<ILocationDetailsProps> = ({
     params: { locationName },
   },
 }) => {
+  const { loading, payload, error } = useQuery<IWeatherResponse>({
+    method: 'GET',
+    endpoint: getWeatherUrl(locationName.toLowerCase()),
+  });
+
   return (
-    <Layout
-      header={<LocationDetailsHeader locationName={locationName} />}
-      body={
-        <LocationViewGrid
-          overview={<LocationOverview />}
-          details={
-            <DetailsGrid>
-              <DetailsItem label="Sunrise" value="05:40" />
-
-              <DetailsItem label="Sunset" value="20:26" />
-
-              <DetailsItem label="Humidity" value="76%" />
-
-              <DetailsItem label="Visibility" value="16.2 km" />
-            </DetailsGrid>
-          }
-        />
-      }
-    />
+    <LocationDetailsContent loading={loading} payload={payload} error={error} />
   );
 };
 

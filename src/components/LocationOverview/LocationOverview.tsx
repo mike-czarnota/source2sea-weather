@@ -1,11 +1,23 @@
-interface ILocationOverviewProps {}
+import { ILocationTempDetails } from '../../models/LocationTempDetails';
+import { formatTemperature } from '../../utils/formatTemperature';
 
-const LocationOverview: React.FC<ILocationOverviewProps> = () => {
+interface ILocationOverviewProps {
+  data: ILocationTempDetails;
+}
+
+const LocationOverview: React.FC<ILocationOverviewProps> = ({ data }) => {
   return (
     <div className="text-center grid grid-cols-1 gap-4">
-      <span className="italic text-xl text-gray-600">Sunny</span>
-      <span className="text-5xl font-bold">12°C</span>
-      <span className="text-gray-600">H: 14°C L: 3°C</span>
+      <span className="italic text-xl text-gray-600">
+        {data.weatherConditions.join(', ')}
+      </span>
+      <span className="text-5xl font-bold">
+        {formatTemperature(data.currentTemp)}
+      </span>
+      <span className="text-gray-600">
+        H: {formatTemperature(data.highTemp)}; L:{' '}
+        {formatTemperature(data.lowTemp)}
+      </span>
     </div>
   );
 };
