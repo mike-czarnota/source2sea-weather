@@ -1,13 +1,18 @@
 import { useEffect, useRef, useState } from 'react';
 import { LocationCardContainer } from '../LocationCard';
 import LocationCardForm, { TSubmitValues } from './LocationCardForm';
+import { useLocalStorage } from '../../hooks/useLocalStorage';
 
 interface ICustomLocationCardProps {}
+
+const key = 'custom-location';
 
 const CustomLocationCard: React.FC<ICustomLocationCardProps> = () => {
   const [isEditing, setIsEditing] = useState(false);
 
-  const userLocationRef = useRef('');
+  const [getItem, setItem] = useLocalStorage(key, '');
+
+  const userLocationRef = useRef(getItem());
 
   useEffect(() => {
     if (!userLocationRef.current) {
@@ -22,6 +27,7 @@ const CustomLocationCard: React.FC<ICustomLocationCardProps> = () => {
   const onSubmit = (values: TSubmitValues) => {
     userLocationRef.current = values.locationName;
     setIsEditing(false);
+    setItem(userLocationRef.current);
   };
 
   return (
