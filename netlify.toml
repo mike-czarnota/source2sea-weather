@@ -1,0 +1,4 @@
+[[redirects]]
+    from = "/api/*"
+    to = "http://api.openweathermap.org/data/2.5/:splat"
+    status = 200
