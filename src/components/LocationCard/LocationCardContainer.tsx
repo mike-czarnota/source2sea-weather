@@ -68,7 +68,7 @@ const LocationCardContainer: React.FC<ILocationCardContainerProps> = ({
     return <Loader />;
   }
 
-  if (error) {
+  if (error || !payload.weather) {
     return (
       <div className="italic">
         Error while loading location:{' '}
@@ -77,10 +77,14 @@ const LocationCardContainer: React.FC<ILocationCardContainerProps> = ({
     );
   }
 
-  const data = formatSimplifiedWeatherResponse(payload as IWeatherResponse);
+  const data = formatSimplifiedWeatherResponse(payload);
 
   return (
-    <LocationCard name={data.name} temperatureInCelsius={data.currentTemp} />
+    <LocationCard
+      name={data.name}
+      temperatureInCelsius={data.currentTemp}
+      isCustomLocation={isCustomLocation}
+    />
   );
 };
 

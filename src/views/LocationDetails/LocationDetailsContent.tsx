@@ -9,17 +9,15 @@ import DetailsGrid from '../../components/DetailsGrid';
 import LocationDetailsError from '../../components/LocationDetailsError';
 
 interface ILocationDetailsContentProps {
-  loading: boolean;
   payload?: IWeatherResponse;
   error: boolean;
 }
 
 const LocationDetailsContent: React.FC<ILocationDetailsContentProps> = ({
-  loading,
   error,
   payload,
 }) => {
-  if (loading) {
+  if (!payload) {
     return (
       <Layout
         header={<LocationDetailsHeader locationName={<Loader />} />}
@@ -32,7 +30,7 @@ const LocationDetailsContent: React.FC<ILocationDetailsContentProps> = ({
     return <LocationDetailsError />;
   }
 
-  const data = formatWeatherResponse(payload as IWeatherResponse);
+  const data = formatWeatherResponse(payload);
 
   return (
     <Layout
