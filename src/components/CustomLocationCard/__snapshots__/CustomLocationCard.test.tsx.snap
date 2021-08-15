@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`testing CustomLocationCard.test.tsx should fetch data and render correctly 1`] = `
+"<div>
+  <div><a class=\\"self p-5 md:px-10 md:py-7 flex justify-between items-center border rounded-lg bg-white border-gray-300 hover:border-gray-900 duration-200 ease-in-out shadow-md hover:shadow-2xl\\" href=\\"/Kuala Lumpur\\"><span class=\\"text-2xl\\">Kuala Lumpur</span><span class=\\"text-xl\\">900°C</span></a><button type=\\"button\\" class=\\"text-blue-500\\">Edit</button></div>
+</div>"
+`;
+
+exports[`testing CustomLocationCard.test.tsx should fetch data and render correctly 2`] = `
+"<div>
+  <div><a class=\\"self p-5 md:px-10 md:py-7 flex justify-between items-center border rounded-lg bg-white border-gray-300 hover:border-gray-900 duration-200 ease-in-out shadow-md hover:shadow-2xl\\" href=\\"/Kuala Lumpur\\"><span class=\\"text-2xl\\">Kuala Lumpur</span><span class=\\"text-xl\\">100°C</span></a><button type=\\"button\\" class=\\"text-blue-500\\">Edit</button></div>
+</div>"
+`;
+
+exports[`testing CustomLocationCard.test.tsx should load with error 1`] = `
+"<div>
+  <div>
+    <div class=\\"italic\\">Error while loading location: <span class=\\"font-bold\\">Salt Lake City</span></div><button type=\\"button\\" class=\\"text-blue-500\\">Edit</button>
+  </div>
+</div>"
+`;
+
+exports[`testing CustomLocationCard.test.tsx should not load when empty 1`] = `
+"<div>
+  <div>
+    <div class=\\"flex flex-col\\">
+      <form><input class=\\"w-full\\" type=\\"text\\" placeholder=\\"Where do you want to check the weather?\\" value=\\"\\"></form><span class=\\"text-sm italic text-gray-400\\">Hit \\"Enter\\" to search</span>
+    </div>
+  </div>
+</div>"
+`;
