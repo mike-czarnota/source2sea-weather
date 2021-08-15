@@ -1,23 +1,29 @@
-type TGetItem = () => string;
-type TSetItem = (value: string) => void;
+import { useCallback } from 'react';
+
+type TGetItem = <TReturnType>() => TReturnType;
+type TSetItemValue = any;
+type TSetItem = (value: TSetItemValue) => void;
 
 export const useLocalStorage = (
   key: string,
-  defaultValue: string
+  defaultValue: any
 ): [TGetItem, TSetItem] => {
-  const setItem: TSetItem = (value: string): void => {
-    localStorage.setItem(key, value);
-  };
+  const setItem: TSetItem = useCallback(
+    (value) => {
+      localStorage.setItem(key, JSON.stringify(value));
+    },
+    [key]
+  );
 
-  const getItem: TGetItem = (): string => {
+  const getItem: TGetItem = useCallback(() => {
     const item = localStorage.getItem(key);
     if (!item) {
       setItem(defaultValue);
       return defaultValue;
     }
 
-    return item;
-  };
+    return JSON.parse(item);
+  }, [key, defaultValue]);
 
   return [getItem, setItem];
 };

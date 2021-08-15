@@ -1,18 +1,27 @@
 import { useEffect, useRef, useState } from 'react';
+import { QueryResponse } from 'react-fetching-library';
 import { LocationCardContainer } from '../LocationCard';
 import LocationCardForm, { TSubmitValues } from './LocationCardForm';
 import { useLocalStorage } from '../../hooks/useLocalStorage';
+import {
+  customLocationKey,
+  getLocationWeatherKey,
+} from '../../constants/localStorage';
+import { IWeatherResponse } from '../../api/types/Weather';
 
 interface ICustomLocationCardProps {}
-
-const key = 'custom-location';
 
 const CustomLocationCard: React.FC<ICustomLocationCardProps> = () => {
   const [isEditing, setIsEditing] = useState(false);
 
-  const [getItem, setItem] = useLocalStorage(key, '');
+  const [getItem, setItem] = useLocalStorage(
+    getLocationWeatherKey(customLocationKey),
+    ''
+  );
 
-  const userLocationRef = useRef(getItem());
+  const userLocationRef = useRef(
+    getItem<QueryResponse<IWeatherResponse>>().payload?.name ?? ''
+  );
 
   useEffect(() => {
     if (!userLocationRef.current) {
@@ -36,7 +45,10 @@ const CustomLocationCard: React.FC<ICustomLocationCardProps> = () => {
         <LocationCardForm onSubmit={onSubmit} />
       ) : (
         <>
-          <LocationCardContainer locationName={userLocationRef.current} />
+          <LocationCardContainer
+            isCustomLocation
+            locationName={userLocationRef.current}
+          />
 
           <button type="button" className="text-blue-500" onClick={toggleEdit}>
             Edit
