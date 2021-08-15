@@ -1,10 +1,41 @@
-IntelliJ:
-    * Plugin Tailwind CSS
-    * Configure automatic eslint
+# Weather app
+This is a simple application to check the weather in some locations. You could also check in the desired location!
 
-# Getting Started with Create React App
+## Use
+1. `git@github.com:panczarny/source2sea-weather.git`
+2. `cd source2sea`
+3. `npm i`
+4. Environment variables. You need to have `REACT_APP_WEATHER_API_KEY` and `REACT_APP_WEATHER_API_URL` set in your `.env` file. To do that: `cp .env.development .env` (there is an env variable that sets url for the open weather api)
+5. `npm run build`
+6. `npm run run`
+7. Check your browser at http://localhost:3001/
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Development
+1. Run steps 1 - 3 from the above
+2. `npm run start`
+3. Check your browser at http://localhost:3000/
+4. In your IDE check that you have configured ESlint configuration (auto config)
+
+## Approach
+1. Use route based views in order to persist ui between page reloads (using `react-router`)
+2. `react-fetching-library` to ease of fetching (error handling, error boundaries, hooks ready to use, etc)
+3. Jest for unit and integration tests
+4. `dotenv` to handle some env variables
+5. Tailwind for ease of use of css
+6. Proxy to handle CORS
+7. Eslint & prettier for code styling
+
+## To improve
+1. Add context to store values of locations somewhere high in the component tree
+2. Add e2e tests (Cypress)
+3. Add some colors
+4. Ensure that config for building app is optimized
+
+---
+
+#### This app was created using [Create React App](https://github.com/facebook/create-react-app). Check below part of the documentation to know more.
+
+## Getting Started with Create React App
 
 ## Available Scripts
 
@@ -47,4 +78,3 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
