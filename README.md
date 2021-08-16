@@ -1,6 +1,8 @@
 # Weather app
 This is a simple application to check the weather in some locations. You could also check in the desired location!
 
+You could check it out at [this link](https://sharp-haibt-02d1a4.netlify.app/).
+
 ## Use
 1. `git@github.com:panczarny/source2sea-weather.git`
 2. `cd source2sea`
@@ -31,6 +33,7 @@ This is a simple application to check the weather in some locations. You could a
 3. Add some colors
 4. Ensure that config for building app is optimized
 5. Don't fetch data when empty custom location
+6. Add some validation (e.g. minLength) to the custom location input
 
 ---
 
