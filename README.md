@@ -30,6 +30,7 @@ This is a simple application to check the weather in some locations. You could a
 2. Add e2e tests (Cypress)
 3. Add some colors
 4. Ensure that config for building app is optimized
+5. Don't fetch data when empty custom location
 
 ---
 
